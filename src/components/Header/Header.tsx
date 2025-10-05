@@ -14,12 +14,17 @@ export function Header() {
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to={"/"}>
-              Form for Enties
+              Form for Entries
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to={"/list"}>
               List of Entries
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to={"/search"}>
+              Search Entries
             </NavLink>
           </li>
         </ul>
