@@ -1,12 +1,12 @@
-import Header from "../components/Header/Header.tsx";
-import { Outlet } from "react-router-dom";
+import {Header} from "../components/Header/Header.tsx";
+import {Outlet} from "react-router-dom";
 
 function Root() {
 
   return (
     <div className="main d-flex flex-column justify-content-center align-items-center">
       <div className="header">
-        <Header />
+        <Header/>
       </div>
       <Outlet/>
     </div>
