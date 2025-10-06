@@ -1,4 +1,4 @@
-export function FormForEntries() {
+export function FormPage() {
   return (
       <form action="#" className="form d-flex flex-column gap-2">
       <textarea

@@ -1,6 +1,6 @@
 import "react-calendar/dist/Calendar.css";
 
-export function ListOfEntries() {
+export function EntriesListPage() {
   return (
       <div>Entries</div>
   );
