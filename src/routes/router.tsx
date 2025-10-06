@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-import {FormForEntries} from "../components/DiaryPanel/pages/FormForEntries/FormForEntries.tsx";
-import {ListOfEntries} from "../components/DiaryPanel/pages/ListOfEntries/ListOfEntries.tsx";
-import {SearchEntries} from "../components/DiaryPanel/pages/SearchEntries.tsx";
+import {FormForEntries} from "../components/DiaryPanel/pages/FormPage/FormPage.tsx";
+import {ListOfEntries} from "../components/DiaryPanel/pages/EntriesListPage/EntriesListPage.tsx";
+import {SearchEntries} from "../components/DiaryPanel/pages/EntriesSearchPage/EntriesSearchPage.tsx";
 import Root from "./root.js";
 
 const router = createBrowserRouter([
