@@ -1,16 +1,22 @@
-import { Notes } from "../data/notes";
+import type { INote } from "../types/INote";
 
-export const NoteItem = () => {
+interface NoteItemProps {
+  note: INote;
+}
 
+export const NoteItem = ({ note }: NoteItemProps) => {
   return (
-    <div className="card" style={{width: "18rem"}}>
+    <div className="card" style={{ width: "18rem" }}>
       <div className="card-body">
-        <p className="card-text">
-          {Notes[0].text}
-        </p>
-        <a href="#" className="btn btn-primary">
-          Go somewhere
-        </a>
+        <p className="card-text text-center">{note.text}</p>
+        <div className="action">
+          <a href="#" className="btn btn-primary">
+            Edit
+          </a>
+          <a href="#" className="btn btn-warning">
+            Delete
+          </a>
+        </div>
       </div>
     </div>
   );
