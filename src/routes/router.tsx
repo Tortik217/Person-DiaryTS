@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import {FormPage} from "../pages/FormPage/FormPage.tsx";
-import {EntriesListPage} from "../pages/EntriesListPage/EntriesListPage.tsx";
-import {EntriesSearchPage} from "../pages/EntriesSearchPage/EntriesSearchPage.tsx";
+import {ListPage} from "../pages/ListPage/ListPage.tsx";
+import {SearchPage} from "../pages/SearchPage/SearchPage.tsx";
 import {Root} from "./root.js";
 
 const router = createBrowserRouter([
@@ -10,8 +10,8 @@ const router = createBrowserRouter([
     element: <Root />,
     children: [
       { index: true, element: <FormPage />},
-      { path: "list", element: <EntriesListPage />},
-      { path: "search", element: <EntriesSearchPage />}
+      { path: "list", element: <ListPage />},
+      { path: "search", element: <SearchPage />}
     ]
   }
 ])

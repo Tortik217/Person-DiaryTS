@@ -12,9 +12,9 @@ export function FormPage() {
 
   const { addNote } = useOutletContext<OutletContext>();
 
-  const handleAdd = (text: string) => {
-    if (text.trim()) {
-      addNote(text);
+  const handleAdd = () => {
+    if (inputValue.trim()) {
+      addNote(inputValue);
       setInputValue("");
     }
   };
@@ -39,7 +39,7 @@ export function FormPage() {
       <button
         type="button"
         className="textarea-btn btn btn-primary"
-        onClick={() => handleAdd(inputValue)}
+        onClick={() => handleAdd()}
       >
         Push
       </button>

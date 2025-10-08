@@ -1,7 +1,7 @@
 import Calendar from "react-calendar";
 import {useState} from "react";
 
-export const EntriesSearchPage = () => {
+export const SearchPage = () => {
 
   const [value, setValue] = useState<Date>(new Date());
 

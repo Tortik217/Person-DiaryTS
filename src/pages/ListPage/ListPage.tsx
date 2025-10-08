@@ -6,7 +6,7 @@ interface OutletContext {
   notes: INote[];
 }
 
-export function EntriesListPage() {
+export function ListPage() {
   const { notes } = useOutletContext<OutletContext>();
 
   return (
