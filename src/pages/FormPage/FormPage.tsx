@@ -1,16 +1,10 @@
 import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
-import type { INote } from "../../types/INote";
-
-interface OutletContext {
-  notes: INote[];
-  addNote: (text: string) => void;
-}
+import {useOutletCtx} from '../../hooks/index.ts'
 
 export function FormPage() {
   const [inputValue, setInputValue] = useState<string>("");
 
-  const { addNote } = useOutletContext<OutletContext>();
+  const { addNote } = useOutletCtx();
 
   const handleAdd = () => {
     if (inputValue.trim()) {
