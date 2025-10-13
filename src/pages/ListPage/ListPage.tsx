@@ -4,15 +4,16 @@ import type { INote } from "../../types/INote";
 
 interface OutletContext {
   notes: INote[];
+  removeNote: (id: number) => void;
 }
 
 export function ListPage() {
-  const { notes } = useOutletContext<OutletContext>();
+  const { notes, removeNote } = useOutletContext<OutletContext>();
 
   return (
     <div className="d-flex flex-wrap gap-3">
       {notes.map((note) => (
-        <NoteItem key={note.id} note={note} />
+        <NoteItem key={note.id} note={note} removeNote={removeNote}/>
       ))}
     </div>
   );

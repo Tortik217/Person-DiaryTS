@@ -2,20 +2,21 @@ import type { INote } from "../types/INote";
 
 interface NoteItemProps {
   note: INote;
+  removeNote: (id: number) => void;
 }
 
-export const NoteItem = ({ note }: NoteItemProps) => {
+export const NoteItem = ({ note, removeNote }: NoteItemProps) => {
   return (
     <div className="card" style={{ width: "18rem" }}>
       <div className="card-body">
         <p className="card-text text-center">{note.text}</p>
         <div className="action">
-          <a href="#" className="btn btn-primary">
+          <button className="btn btn-primary">
             Edit
-          </a>
-          <a href="#" className="btn btn-warning">
+          </button>
+          <button onClick={() => removeNote(note.id)} className="btn btn-warning">
             Delete
-          </a>
+          </button>
         </div>
       </div>
     </div>

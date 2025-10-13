@@ -17,10 +17,14 @@ export function Root() {
     setNotes((prev) => [...prev, newNote])
   }
 
+  const removeNote = (id: number) => {
+    setNotes(notes.filter((prev => prev.id !== id)))
+  }
+
   return (
     <div className="main d-flex flex-column justify-content-center align-items-center">
       <Header />
-      <Outlet context={{notes, addNote}}/>
+      <Outlet context={{notes, addNote, removeNote}}/>
     </div>
   );
 }
