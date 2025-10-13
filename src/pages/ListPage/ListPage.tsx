@@ -1,14 +1,8 @@
-import { useOutletContext } from "react-router-dom";
 import { NoteItem } from "../../components/NoteItem";
-import type { INote } from "../../types/INote";
-
-interface OutletContext {
-  notes: INote[];
-  removeNote: (id: number) => void;
-}
+import { useOutletCtx } from '../../hooks/index.ts'
 
 export function ListPage() {
-  const { notes, removeNote } = useOutletContext<OutletContext>();
+  const { notes, removeNote } = useOutletCtx();
 
   return (
     <div className="d-flex flex-wrap gap-3">
