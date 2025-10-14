@@ -4,7 +4,6 @@ import { useState } from "react";
 interface NoteItemProps {
   note: INote;
   removeNote: (id: number) => void;
-  editNote: (id: number, text: string) => void;
 }
 
 export const NoteItem = ({ note, removeNote }: NoteItemProps) => {
