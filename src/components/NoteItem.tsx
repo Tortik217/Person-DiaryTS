@@ -7,12 +7,12 @@ interface NoteItemProps {
 }
 
 export const NoteItem = ({ note, removeNote }: NoteItemProps) => {
-  const [isEditing, setEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const [textValue, setTextValue] = useState(note.text)
 
-  const handlerEditValue = (text: string) => {
+  const onEdit = (text: string) => {
     note.text = text
-    setEditing(false)
+    setIsEditing(false)
   }
 
   return (
@@ -29,12 +29,12 @@ export const NoteItem = ({ note, removeNote }: NoteItemProps) => {
             <div className="action d-flex justify-content-around">
               <button
                 className="btn btn-success"
-                onClick={() => handlerEditValue(textValue)}
+                onClick={() => onEdit(textValue)}
               >
                 Accept
               </button>
               <button
-                onClick={() => setEditing(false)}
+                onClick={() => setIsEditing(false)}
                 className="btn btn-danger"
               >
                 Cancel
@@ -48,7 +48,7 @@ export const NoteItem = ({ note, removeNote }: NoteItemProps) => {
             <div className="action d-flex justify-content-around">
               <button className="btn btn-success">Done</button>
               <button
-                onClick={() => setEditing(true)}
+                onClick={() => setIsEditing(true)}
                 className="btn btn-primary"
               >
                 Edit
