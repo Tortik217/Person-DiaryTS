@@ -4,14 +4,15 @@ import { useState } from "react";
 interface NoteItemProps {
   note: INote;
   removeNote: (id: number) => void;
+  editNote: (id: number, newText: string) => void
 }
 
-export const NoteItem = ({ note, removeNote }: NoteItemProps) => {
+export const NoteItem = ({ note, removeNote, editNote }: NoteItemProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [textValue, setTextValue] = useState(note.text)
 
-  const onEdit = (text: string) => {
-    note.text = text
+  const onEdit = () => {
+    editNote(note.id, textValue)
     setIsEditing(false)
   }
 
@@ -29,7 +30,7 @@ export const NoteItem = ({ note, removeNote }: NoteItemProps) => {
             <div className="action d-flex justify-content-around">
               <button
                 className="btn btn-success"
-                onClick={() => onEdit(textValue)}
+                onClick={() => onEdit()}
               >
                 Accept
               </button>

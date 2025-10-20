@@ -22,11 +22,6 @@ export function Header() {
               List of Entries
             </NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to={"/search"}>
-              Search Entries
-            </NavLink>
-          </li>
         </ul>
       </div>
   );
