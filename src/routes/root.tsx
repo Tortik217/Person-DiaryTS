@@ -1,6 +1,6 @@
 import { Header } from "../components/Header/Header";
 import { Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Notes } from "../data/notes";
 import type { INote } from "../types/INote";
 
@@ -12,9 +12,14 @@ export function Root() {
       id: Date.now(),
       text,
       complited: false,
+      date: new Date().toISOString().split('T')[0],
     };
     setNotes((prev) => [...prev, newNote]);
   };
+
+  useEffect(() => {
+    console.log(notes);
+  }, [notes]);
 
   const removeNote = (id: number) => {
     setNotes(notes.filter((prev) => prev.id !== id));
