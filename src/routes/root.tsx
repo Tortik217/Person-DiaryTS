@@ -2,6 +2,7 @@ import { Header } from "../components/Header/Header";
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Notes } from "../data/notes";
+import { getIsosString } from "../hooks/dateUtils";
 import type { INote } from "../types/INote";
 
 export function Root() {
@@ -12,7 +13,7 @@ export function Root() {
       id: Date.now(),
       text,
       complited: false,
-      date: new Date().toISOString().split('T')[0],
+      date: getIsosString(),
     };
     setNotes((prev) => [...prev, newNote]);
   };
