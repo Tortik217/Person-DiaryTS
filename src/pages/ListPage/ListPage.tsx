@@ -1,19 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { NoteItem } from "../../components/NoteItem";
-import { useOutletCtx } from "../../hooks/index.ts";
+import { useOutletCtx } from "../../hooks";
 
 export function ListPage() {
   const { notes, removeNote, editNote } = useOutletCtx();
-  const [date, setDate] = useState("");
-  const [filteredNotes, setFilteredNotes] = useState(notes);
+  const [inputDate, setInputDate] = useState<string>("");
 
-  useEffect(() => {
-    if (date) {
-      setFilteredNotes(notes.filter((note) => note.date === date));
-    } else {
-      setFilteredNotes(notes);
-    }
-  }, [date, notes]);
+  const filteredNotes  = inputDate ? notes.filter((note) => note.date === inputDate) : notes
 
   return (
     <div className="d-flex flex-wrap flex-column gap-3">
@@ -25,13 +18,13 @@ export function ListPage() {
             name="date"
             id="date"
             className="form-control"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            value={inputDate}
+            onChange={(e) => setInputDate(e.target.value)}
           />
         </label>
         <button
           type="button"
-          onClick={() => setDate("")}
+          onClick={() => setInputDate("")}
           className="btn btn-warning"
         >
           Reset Date

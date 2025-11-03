@@ -1,7 +1,7 @@
 import type { INote } from "../types/INote";
-import { getIsosString } from "../hooks/dateUtils";
+import { getIsoString } from "../hooks/dateUtils";
 
 export const Notes: INote[] = [
-  { id: 1, text: "Hello, World!", complited: false, date: getIsosString() },
+  { id: 1, text: "Hello, World!", completed: false, date: getIsoString() },
 ];
 // export const Notes: INote[] = [];

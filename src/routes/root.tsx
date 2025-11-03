@@ -2,7 +2,7 @@ import { Header } from "../components/Header/Header";
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Notes } from "../data/notes";
-import { getIsosString } from "../hooks/dateUtils";
+import { getIsoString } from "../hooks/dateUtils";
 import type { INote } from "../types/INote";
 
 export function Root() {
@@ -12,8 +12,8 @@ export function Root() {
     const newNote: INote = {
       id: Date.now(),
       text,
-      complited: false,
-      date: getIsosString(),
+      completed: false,
+      date: getIsoString(),
     };
     setNotes((prev) => [...prev, newNote]);
   };

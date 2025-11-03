@@ -1,5 +1,5 @@
-import { useState } from "react";
-import {useOutletCtx} from '../../hooks/index.ts'
+import {useState} from "react";
+import {useOutletCtx} from '../../hooks'
 
 export function FormPage() {
   const [inputValue, setInputValue] = useState<string>("");
@@ -12,6 +12,8 @@ export function FormPage() {
       setInputValue("");
     }
   };
+
+  // const clearInputDate  = inputValue.trim().toLowerCase();
 
   return (
     <form
@@ -34,6 +36,7 @@ export function FormPage() {
         type="button"
         className="textarea-btn btn btn-primary"
         onClick={() => handleAdd()}
+        disabled={inputValue.length < 3}
       >
         Push
       </button>

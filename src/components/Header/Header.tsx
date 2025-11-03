@@ -9,11 +9,6 @@ export function Header() {
         <ul className="nav nav-underline m-3">
           <li className="nav-item">
             <NavLink className="nav-link" to={"/"}>
-              Main
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to={"/"}>
               Form for Entries
             </NavLink>
           </li>
