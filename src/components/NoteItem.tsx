@@ -3,7 +3,7 @@ import {useEffect, useRef, useState} from "react";
 
 interface NoteItemProps {
   note: INote;
-  removeNote: (id: number) => void;
+  removeNote: (id: string) => void;
   editNote: (id: string, newText: string) => void
 }
 
