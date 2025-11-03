@@ -16,30 +16,30 @@ export function FormPage() {
   // const clearInputDate  = inputValue.trim().toLowerCase();
 
   return (
-    <form
-      action="#"
-      className="form d-flex flex-column gap-2"
-      onSubmit={(e) => e.preventDefault()}
-    >
-      <textarea
-        className="textarea-main border border-2 border-dark"
-        name="entry"
-        id="entry"
-        rows={15}
-        cols={50}
-        placeholder="Enter whatever you want :)"
-        value={inputValue}
-        onChange={(event) => setInputValue(event.target.value)}
-        required
-      ></textarea>
-      <button
-        type="button"
-        className="textarea-btn btn btn-primary"
-        onClick={() => handleAdd()}
-        disabled={inputValue.length < 3}
+      <form
+          action="#"
+          className="form d-flex flex-column gap-2"
+          onSubmit={(e) => e.preventDefault()}
       >
-        Push
-      </button>
-    </form>
+      <textarea
+          className="form-control textarea-main"
+          name="entry"
+          id="floatingTextarea2"
+          rows={15}
+          cols={50}
+          placeholder="Enter whatever you want :)"
+          value={inputValue}
+          onChange={(event) => setInputValue(event.target.value)}
+          required
+      ></textarea>
+        <button
+            type="button"
+            className="textarea-btn btn btn-primary"
+            onClick={() => handleAdd()}
+            disabled={inputValue.length < 3}
+        >
+          Push
+        </button>
+      </form>
   );
 }

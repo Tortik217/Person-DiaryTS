@@ -1,5 +1,5 @@
 import type { INote } from "../types/INote";
-import { useState } from "react";
+import {useEffect, useRef, useState} from "react";
 
 interface NoteItemProps {
   note: INote;
@@ -8,13 +8,18 @@ interface NoteItemProps {
 }
 
 export const NoteItem = ({ note, removeNote, editNote }: NoteItemProps) => {
-  const [isEditing, setIsEditing] = useState(false);
-  const [textValue, setTextValue] = useState(note.text)
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [textValue, setTextValue] = useState<string>(note.text)
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const onEdit = () => {
     editNote(note.id, textValue)
     setIsEditing(false)
   }
+
+  useEffect(() => {
+    inputRef.current?.focus()
+  }, [isEditing])
 
   return (
     <div className="card" style={{ width: "18rem" }}>
@@ -26,6 +31,7 @@ export const NoteItem = ({ note, removeNote, editNote }: NoteItemProps) => {
               className="card-text mb-3"
               value={textValue}
               onChange={e => setTextValue(e.target.value)}
+              ref={inputRef}
             />
             <div className="action d-flex justify-content-around">
               <button

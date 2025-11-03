@@ -1,3 +1,5 @@
-export const getIsoString = () => {
-  return new Date().toISOString().split("T")[0];
+export const getIsoDate = () => {
+  const d = new Date();
+  d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+  return d.toISOString().slice(0, 10); // теперь это локальная YYYY-MM-DD
 };

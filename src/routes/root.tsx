@@ -2,18 +2,19 @@ import { Header } from "../components/Header/Header";
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Notes } from "../data/notes";
-import { getIsoString } from "../hooks/dateUtils";
+import { getIsoDate } from "../hooks/dateUtils";
 import type { INote } from "../types/INote";
+import {nanoid} from "nanoid";
 
 export function Root() {
   const [notes, setNotes] = useState<INote[]>(Notes);
 
   const addNote = (text: string) => {
     const newNote: INote = {
-      id: Date.now(),
+      id: nanoid(5),
       text,
       completed: false,
-      date: getIsoString(),
+      date: getIsoDate(),
     };
     setNotes((prev) => [...prev, newNote]);
   };
@@ -22,11 +23,11 @@ export function Root() {
     console.log(notes);
   }, [notes]);
 
-  const removeNote = (id: number) => {
+  const removeNote = (id: string) => {
     setNotes(notes.filter((prev) => prev.id !== id));
   };
 
-  const editNote = (id: number, newText: string) => {
+  const editNote = (id: string, newText: string) => {
     setNotes((prev) =>
       prev.map((note) => (note.id === id ? { ...note, text: newText } : note))
     );
