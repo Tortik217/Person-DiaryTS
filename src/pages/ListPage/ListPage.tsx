@@ -3,7 +3,7 @@ import {NoteItem} from "../../components/NoteItem";
 import {useOutletCtx} from "../../hooks";
 
 export function ListPage() {
-  const {notes, removeNote, editNote} = useOutletCtx();
+  const {notes, removeNote, editNote, toggleCompleted} = useOutletCtx();
   const [inputDate, setInputDate] = useState<string>("");
 
   const filteredNotes = inputDate ? notes.filter((note) => note.date === inputDate) : notes
@@ -40,6 +40,7 @@ export function ListPage() {
                       note={note}
                       removeNote={removeNote}
                       editNote={editNote}
+                      toggleCompleted={toggleCompleted}
                   />
               ))
           ) : (

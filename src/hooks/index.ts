@@ -7,6 +7,7 @@ interface OutletContext {
   addNote: (text: string) => void;
   removeNote: (id: string) => void;
   editNote: (id: string, newText: string) => void
+  toggleCompleted: (id: string) => void;
 }
 
 export const useOutletCtx = () => useOutletContext<OutletContext>();
