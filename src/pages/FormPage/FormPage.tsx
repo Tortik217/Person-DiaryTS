@@ -44,9 +44,9 @@ export function FormPage() {
         Push
       </button>
       {successMessage && (
-        <div className="successMessage mt-2 fs-1" style={{ color: "#2e7d32" }}>
+        <h3 className="successMessage mt-2 text-center" style={{ color: "#2e7d32" }}>
           ✅ {successMessage}
-        </div>
+        </h3>
       )}
     </form>
   );
