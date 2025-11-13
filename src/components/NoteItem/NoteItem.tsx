@@ -1,4 +1,4 @@
-import type {INote} from "../types/INote";
+import type {INote} from "../../types/INote";
 import {useEffect, useRef, useState} from "react";
 
 interface NoteItemProps {

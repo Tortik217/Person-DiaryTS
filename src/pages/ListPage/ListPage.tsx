@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {NoteItem} from "../../components/NoteItem";
+import {NoteItem} from "../../components/NoteItem/NoteItem";
 import {useOutletCtx} from "../../hooks";
 
 export function ListPage() {

@@ -1,0 +1,13 @@
+@use "../../../styles/media.scss" as *;
+
+.logo {
+  @include mobile-s {
+    text-align: center;
+  }
+}
+
+.nav {
+  @include mobile-s {
+    flex-direction: row;
+  }
+}
