@@ -1,9 +1,7 @@
-@use "../../styles/media" as *;
+@use "../../../styles/media.scss" as *;
 
-.textarea-main {
-  width: 100%;
-  max-width: 100%;
-  min-height: 300px;
+textarea.form-control.textarea-main {
+  min-height: 400px;
 
   @include mobile-s {
     min-height: 160px;

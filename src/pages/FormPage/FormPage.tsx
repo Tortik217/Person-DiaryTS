@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useOutletCtx } from "../../hooks";
+import "./FormPage.scss"
 
 export function FormPage() {
   const [inputValue, setInputValue] = useState<string>("");
@@ -28,8 +29,6 @@ export function FormPage() {
         className="form-control textarea-main"
         name="entry"
         id="floatingTextarea2"
-        rows={15}
-        cols={50}
         placeholder="Enter whatever you want :)"
         value={inputValue}
         onChange={(event) => setInputValue(event.target.value)}
