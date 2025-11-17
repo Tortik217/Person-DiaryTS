@@ -1,10 +1,10 @@
-import {Header} from "../components/Header/Header";
-import {Outlet} from "react-router-dom";
-import {useState, useEffect} from "react";
-import {Notes} from "../data/notes";
-import {getIsoDate} from "../hooks/dateUtils";
-import type {INote} from "../types/INote";
-import {nanoid} from "nanoid";
+import { Header } from "../components/Header/Header";
+import { Outlet } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Notes } from "../data/notes";
+import { getIsoDate } from "../hooks/dateUtils";
+import type { INote } from "../types/INote";
+import { nanoid } from "nanoid";
 import * as localforage from "localforage";
 
 export function Root() {
@@ -29,7 +29,8 @@ export function Root() {
         const stored = await localforage.getItem<INote[] | null>(NOTES_KEY);
 
         //Временно
-        const normalized = Array.isArray(stored) && stored.length > 0 ? stored : Notes;
+        const normalized =
+          Array.isArray(stored) && stored.length > 0 ? stored : Notes;
         setNotes(normalized);
         // Временно
 
@@ -57,19 +58,23 @@ export function Root() {
 
   const editNote = (id: string, newText: string) => {
     setNotes((prev) =>
-        prev.map((note) => (note.id === id ? {...note, text: newText} : note))
+      prev.map((note) => (note.id === id ? { ...note, text: newText } : note))
     );
   };
 
   const toggleCompleted = (id: string) =>
-      setNotes((list) =>
-          list.map((n) => (n.id === id ? { ...n, completed: !n.completed } : n))
-      );
+    setNotes((list) =>
+      list.map((n) => (n.id === id ? { ...n, completed: !n.completed } : n))
+    );
 
   return (
-      <div className="main d-flex flex-column justify-content-center align-items-center">
-        <Header/>
-        <Outlet context={{notes, addNote, removeNote, editNote, toggleCompleted}}/>
+    <div className="main d-flex flex-column justify-content-center align-items-center">
+      <div className="main-section p-3">
+        <Header />
+        <Outlet
+          context={{ notes, addNote, removeNote, editNote, toggleCompleted }}
+        />
       </div>
+    </div>
   );
 }

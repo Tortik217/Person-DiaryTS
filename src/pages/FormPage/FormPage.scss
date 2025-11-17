@@ -1,0 +1,11 @@
+@use "../../styles/media" as *;
+
+.textarea-main {
+  width: 100%;
+  max-width: 100%;
+  min-height: 300px;
+
+  @include mobile-s {
+    min-height: 160px;
+  }
+}

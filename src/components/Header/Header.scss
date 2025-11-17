@@ -8,6 +8,7 @@
 
 .nav {
   @include mobile-s {
-    flex-direction: row;
+    justify-content: center;
+    margin: 0;
   }
 }
