@@ -6,6 +6,7 @@ import {getIsoDate} from "../hooks/dateUtils";
 import type {INote} from "../types/INote";
 import {nanoid} from "nanoid";
 import notesAPI from "../api/notesAPI.ts";
+
 // import * as localforage from "localforage";
 
 export function Root() {
@@ -19,8 +20,15 @@ export function Root() {
       date: getIsoDate(),
     };
 
-    const addedNote = await notesAPI.add(newNote);
-    setNotes(prev => [...prev, addedNote]);
+    setNotes((prev) => [...prev, newNote]);
+
+    try {
+      const saved = await notesAPI.add(newNote);
+
+      setNotes((prev) => prev.map((n) => (n.id === newNote.id ? saved : n)));
+    } catch (e) {
+      console.error("Не удалось добавить заметку:", e);
+    }
   };
 
 
@@ -39,6 +47,9 @@ export function Root() {
 
 
   const removeNote = async (id: string) => {
+
+    setNotes(prev => prev.filter(note => note.id !== id));
+
     try {
       await notesAPI.delete(id);
       setNotes(prev => prev.filter(note => note.id !== id));
@@ -48,6 +59,13 @@ export function Root() {
   };
 
   const editNote = async (id: string, newText: string) => {
+
+    setNotes((n) =>
+        n.map((note) =>
+            note.id === id ? {...note, text: newText} : note
+        )
+    );
+
     try {
       const updated = await notesAPI.edit(id, newText);
       setNotes((prev) =>
@@ -60,6 +78,15 @@ export function Root() {
   };
 
   const toggleCompleted = async (id: string) => {
+
+    setNotes((n) =>
+        n.map((note) =>
+            note.id === id
+                ? {...note, completed: !note.completed}
+                : note
+        )
+    );
+
     try {
       const current = notes.find(n => n.id === id);
       if (!current) return;

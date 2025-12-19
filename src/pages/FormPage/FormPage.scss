@@ -1,9 +1,15 @@
 @use "../../../styles/media.scss" as *;
 
 textarea.form-control.textarea-main {
+  min-width: 400px;
   min-height: 400px;
 
+  //@include desktop {
+  //  min-width: 400px;
+  //}
+
   @include mobile-s {
+    min-width: 250px;
     min-height: 160px;
   }
 }
