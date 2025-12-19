@@ -10,7 +10,6 @@ import notesAPI from "../api/notesAPI.ts";
 
 export function Root() {
   const [notes, setNotes] = useState<INote[]>(Notes);
-  const [isLoaded, setIsLoaded] = useState(false);
 
   const addNote = async (text: string) => {
     const newNote: INote = {
@@ -34,8 +33,6 @@ export function Root() {
       } catch (e) {
         console.error("Не удалось загрузить заметки:", e);
         setNotes(Notes);
-      } finally {
-        setIsLoaded(true);
       }
     })();
   }, []);
