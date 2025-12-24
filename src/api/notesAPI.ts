@@ -1,6 +1,6 @@
 import type {INote} from "../types/INote";
 
-const URL = 'http://localhost:3002/notes'
+const URL = 'http://localhost:3000/notes'
 
 const headers = {
   'Content-Type': 'application/json',
